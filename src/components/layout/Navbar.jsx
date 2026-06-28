@@ -19,11 +19,11 @@ const Navbar = () => {
   return (
     <nav className="bg-brand-white/70 backdrop-blur-lg shadow-[0_4px_30px_rgba(0,0,0,0.05)] sticky top-0 z-50 border-b border-white/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-24">
+        <div className="flex justify-between h-16 md:h-20">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-              <img src={logoImage} alt="Crystal Maid Logo" className="h-20 sm:h-24 w-auto mix-blend-multiply transform hover:scale-105 transition-transform duration-300" />
-              <span className="font-display font-bold text-3xl text-brand-navy hidden sm:block">Crystal <span className="text-brand-gold">Maid</span></span>
+              <img src={logoImage} alt="Crystal Maid Logo" className="h-10 sm:h-12 md:h-16 w-auto mix-blend-multiply transform hover:scale-105 transition-transform duration-300" />
+              <span className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-brand-navy">Crystal <span className="text-brand-gold">Maid</span></span>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">

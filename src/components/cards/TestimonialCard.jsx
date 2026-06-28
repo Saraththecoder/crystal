@@ -2,7 +2,7 @@ import { Star } from 'lucide-react';
 
 const TestimonialCard = ({ name, location, quote, rating = 5 }) => {
   return (
-    <div className="bg-white/60 backdrop-blur-lg p-8 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/60 relative h-full flex flex-col hover:-translate-y-1 transition-transform duration-300">
+    <div className="bg-white/60 backdrop-blur-lg p-8 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/60 relative h-full flex flex-col hover:-translate-y-1 transition-transform duration-300 whitespace-normal">
       <div className="flex text-brand-gold mb-4">
         {[...Array(5)].map((_, i) => (
           <Star key={i} size={20} fill={i < rating ? "currentColor" : "none"} className={i >= rating ? "text-brand-grey" : ""} />

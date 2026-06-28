@@ -38,12 +38,12 @@ const Home = () => {
       </Helmet>
 
       {/* Hero Section - 2 Column Layout (Left Image, Right Matter) */}
-      <section className="relative bg-brand-white overflow-hidden pt-12 pb-20 lg:pt-24 lg:pb-32">
+      <section className="relative bg-brand-white overflow-hidden pt-8 pb-16 lg:pt-24 lg:pb-32">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-gold opacity-5 blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-brand-royal opacity-5 blur-3xl pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
             
             {/* Left Side: Image */}
             <motion.div 
@@ -71,7 +71,7 @@ const Home = () => {
               <div className="inline-block bg-brand-gold/10 text-brand-gold font-bold px-4 py-2 rounded-full text-sm mb-6 uppercase tracking-wider">
                 Bengaluru's #1 Rated Agency
               </div>
-              <h1 className="mb-6 leading-snug text-4xl md:text-5xl lg:text-6xl text-brand-navy">
+              <h1 className="mb-6 leading-snug text-3xl md:text-5xl lg:text-6xl text-brand-navy">
                 Premium & Trusted <span className="text-brand-royal block mt-2">Domestic Staff</span> for your home
               </h1>
               <p className="text-xl text-brand-greyText mb-10 leading-relaxed">
@@ -82,13 +82,13 @@ const Home = () => {
                 <a 
                   href="https://wa.me/919876543210?text=I%20want%20to%20book%20a%20maid%20now"
                   target="_blank" rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-brand-royal text-brand-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-navy hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shadow-lg"
+                  className="w-full sm:w-auto bg-brand-royal text-brand-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-brand-navy hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shadow-lg"
                 >
                   Book a Maid Now <ChevronRight className="ml-2" size={20} />
                 </a>
                 <a 
                   href="tel:+919876543210"
-                  className="w-full sm:w-auto bg-brand-white border-2 border-brand-gold text-brand-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-gold hover:text-brand-white hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shadow-md"
+                  className="w-full sm:w-auto bg-brand-white border-2 border-brand-gold text-brand-navy px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-brand-gold hover:text-brand-white hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shadow-md"
                 >
                   Call Us Now
                 </a>
@@ -111,37 +111,42 @@ const Home = () => {
         </Marquee>
       </section>
 
-      {/* Trust Bar */}
-      <section className="py-12 bg-brand-offwhite border-y border-brand-grey relative z-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Trust Bar Redesign */}
+      <section className="py-16 md:py-20 bg-brand-navy relative z-20 overflow-hidden shadow-2xl">
+        {/* Subtle background glow */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[800px] h-[300px] bg-brand-gold/10 rounded-full blur-[100px]"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={{
-              visible: { transition: { staggerChildren: 0.15 } },
+              visible: { transition: { staggerChildren: 0.2 } },
               hidden: {}
             }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 md:divide-x divide-white/10"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60 } } }}>
-              <TrustBadge icon={Star} stat="4+ Years" label="Experience" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 50 } } }}>
+              <TrustBadge icon={Star} stat="4+" label="Years Exp." />
             </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60 } } }}>
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 50 } } }}>
               <TrustBadge icon={Users} stat="500+" label="Happy Families" />
             </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60 } } }}>
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 50 } } }}>
               <TrustBadge icon={ShieldCheck} stat="100%" label="Verified Staff" />
             </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60 } } }}>
-              <TrustBadge icon={Clock} stat="24-48h" label="Quick Replacement" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 50 } } }}>
+              <TrustBadge icon={Clock} stat="24h" label="Quick Replace" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Services Grid with Images */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[#fdfbfb] to-[#ebedee]">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-[#fdfbfb] to-[#ebedee]">
         <div className="absolute top-40 left-10 w-96 h-96 bg-brand-gold/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
         <div className="absolute top-10 right-20 w-96 h-96 bg-brand-royal/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-40 w-96 h-96 bg-pink-300/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -172,13 +177,13 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Redesign */}
-      <section className="py-24 bg-[#0A1F44] relative z-20">
+      <section className="py-16 md:py-24 bg-brand-white relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-brand-white text-4xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-brand-navy text-4xl md:text-5xl font-display font-bold mb-4">
               Why Choose Crystal Maid?
             </h2>
-            <p className="text-brand-offwhite/80 text-lg max-w-2xl mx-auto">Experience unparalleled peace of mind with Bengaluru's most trusted premium domestic staffing agency.</p>
+            <p className="text-brand-greyText text-lg max-w-2xl mx-auto">Experience unparalleled peace of mind with Bengaluru's most trusted premium domestic staffing agency.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -196,13 +201,15 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                className="group bg-[#0D1B2A] rounded-2xl p-8 border border-white/5 hover:border-brand-gold/30 transition-all duration-300 hover:-translate-y-1 shadow-lg"
+                className="group bg-brand-offwhite rounded-2xl p-6 md:p-8 border border-brand-grey hover:border-brand-gold/50 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
               >
-                <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-[#0D1B2A] transition-colors duration-300">
-                  <item.icon size={28} />
+                {/* Subtle Hover Glow Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-brand-white shadow-sm flex items-center justify-center text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-white transition-colors duration-500 relative z-10 border border-brand-grey/50">
+                  <item.icon size={24} className="md:w-7 md:h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-white mb-3">{item.title}</h3>
-                <p className="text-brand-offwhite/60 leading-relaxed text-base">{item.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-brand-navy mb-3 relative z-10">{item.title}</h3>
+                <p className="text-brand-greyText leading-relaxed text-sm md:text-base relative z-10">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -247,17 +254,40 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-brand-white border-t border-brand-grey relative">
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-brand-gold/5 transform -skew-x-12 origin-top"></div>
+      <section className="py-16 md:py-24 bg-brand-white border-t border-brand-grey relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-full md:w-1/3 h-full bg-brand-gold/5 transform -skew-x-12 origin-top"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="mb-6 text-4xl md:text-5xl text-brand-navy">Ready to simplify your life?</h2>
-          <p className="text-xl text-brand-greyText mb-12">Get a free consultation today and find the perfect match for your household needs.</p>
-          <Link 
-            to="/contact"
-            className="inline-block bg-brand-gold text-brand-navy px-12 py-5 rounded-full font-bold text-xl hover:bg-brand-navy hover:text-brand-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-4 md:mb-6 text-3xl md:text-5xl text-brand-navy"
           >
-            Get Free Consultation
-          </Link>
+            Ready to simplify your life?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-brand-greyText mb-8 md:mb-12"
+          >
+            Get a free consultation today and find the perfect match for your household needs.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Link 
+              to="/contact"
+              className="inline-block bg-brand-gold text-brand-navy px-8 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-brand-navy hover:text-brand-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+            >
+              Get Free Consultation
+            </Link>
+          </motion.div>
         </div>
       </section>
     </>

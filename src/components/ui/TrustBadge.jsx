@@ -1,11 +1,11 @@
 const TrustBadge = ({ icon: Icon, stat, label }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-brand-white rounded-2xl shadow-sm border border-white/10 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-      <div className="bg-brand-offwhite p-4 rounded-full mb-4 text-brand-royal">
-        <Icon size={32} />
+    <div className="flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-300 group">
+      <div className="mb-4 text-brand-gold opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+        <Icon size={40} strokeWidth={1.5} />
       </div>
-      <div className="font-bold text-2xl text-brand-navy mb-1">{stat}</div>
-      <div className="text-sm text-brand-greyText text-center font-medium">{label}</div>
+      <div className="font-display font-bold text-4xl sm:text-5xl text-brand-white mb-2 group-hover:text-brand-goldLight transition-colors duration-300">{stat}</div>
+      <div className="text-sm sm:text-base text-brand-offwhite/70 uppercase tracking-widest font-semibold">{label}</div>
     </div>
   );
 };
