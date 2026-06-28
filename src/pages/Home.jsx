@@ -6,6 +6,7 @@ import ServiceCard from '../components/cards/ServiceCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
 import SectionHeader from '../components/ui/SectionHeader';
 import TrustBadge from '../components/ui/TrustBadge';
+import Marquee from '../components/ui/Marquee';
 
 // Import newly generated images
 import heroImage from '../assets/hero_maid.png';
@@ -70,8 +71,8 @@ const Home = () => {
               <div className="inline-block bg-brand-gold/10 text-brand-gold font-bold px-4 py-2 rounded-full text-sm mb-6 uppercase tracking-wider">
                 Bengaluru's #1 Rated Agency
               </div>
-              <h1 className="mb-6 leading-tight text-4xl md:text-5xl lg:text-6xl text-brand-navy">
-                Premium & Trusted <br/><span className="text-brand-royal">Domestic Staff</span><br/> for your home
+              <h1 className="mb-6 leading-snug text-4xl md:text-5xl lg:text-6xl text-brand-navy">
+                Premium & Trusted <span className="text-brand-royal block mt-2">Domestic Staff</span> for your home
               </h1>
               <p className="text-xl text-brand-greyText mb-10 leading-relaxed">
                 Meticulously verified maids, chefs, and caretakers. We bring unparalleled professionalism, quick replacements, and absolute peace of mind.
@@ -96,6 +97,18 @@ const Home = () => {
 
           </div>
         </div>
+      </section>
+
+      {/* Premium Text Marquee */}
+      <section className="bg-brand-navy border-y border-brand-gold/30 relative z-20 shadow-[0_0_20px_rgba(201,168,76,0.15)]">
+        <Marquee speed="normal" className="text-brand-white/90 text-sm md:text-base font-bold uppercase tracking-[0.2em]">
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> 100% Background Verified</span>
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> Premium Cook Services</span>
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> Professional Baby Care</span>
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> Elderly Care Specialists</span>
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> Japa Maid Services</span>
+          <span className="flex items-center"><Star className="inline mr-3 text-brand-gold" size={16} /> Deep Cleaning Experts</span>
+        </Marquee>
       </section>
 
       {/* Trust Bar */}
@@ -177,13 +190,20 @@ const Home = () => {
               { icon: Star, title: "Highest Ratings", desc: "Consistently rated 5 stars by over 500 extremely satisfied and happy families across Bengaluru." },
               { icon: HeartPulse, title: "Compassionate Care", desc: "Highly empathetic and loving caregivers who are trained to treat your family just like their own." }
             ].map((item, i) => (
-              <div key={i} className="group bg-[#0D1B2A] rounded-2xl p-8 border border-white/5 hover:border-brand-gold/30 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                className="group bg-[#0D1B2A] rounded-2xl p-8 border border-white/5 hover:border-brand-gold/30 transition-all duration-300 hover:-translate-y-1 shadow-lg"
+              >
                 <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-[#0D1B2A] transition-colors duration-300">
                   <item.icon size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-brand-white mb-3">{item.title}</h3>
                 <p className="text-brand-offwhite/60 leading-relaxed text-base">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -198,16 +218,30 @@ const Home = () => {
             title="What Our Clients Say" 
             subtitle="Don't just take our word for it. Hear from the families who trust us." 
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {testimonials.map((test, index) => (
-              <TestimonialCard 
-                key={index}
-                name={test.name}
-                location={test.location}
-                quote={test.quote}
-                rating={test.rating}
-              />
-            ))}
+          <div className="mt-12 -mx-4 sm:-mx-6 lg:-mx-8">
+            <Marquee speed="slow" className="py-4">
+              {testimonials.map((test, index) => (
+                <div key={index} className="w-[350px] md:w-[450px]">
+                  <TestimonialCard 
+                    name={test.name}
+                    location={test.location}
+                    quote={test.quote}
+                    rating={test.rating}
+                  />
+                </div>
+              ))}
+              {/* Duplicate array for smoother short-array marquee loop visually if needed, though Marquee handles it */}
+              {testimonials.map((test, index) => (
+                <div key={`dup-${index}`} className="w-[350px] md:w-[450px]">
+                  <TestimonialCard 
+                    name={test.name}
+                    location={test.location}
+                    quote={test.quote}
+                    rating={test.rating}
+                  />
+                </div>
+              ))}
+            </Marquee>
           </div>
         </div>
       </section>
