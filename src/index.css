@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  
+  --color-brand-navy: #0A1F44;
+  --color-brand-royal: #1A4DB0;
+  --color-brand-gold: #C9A84C;
+  --color-brand-goldLight: #F0D080;
+  --color-brand-white: #FFFFFF;
+  --color-brand-offwhite: #F7F8FC;
+  --color-brand-grey: #E8ECF4;
+  --color-brand-greyText: #6B7A99;
+  --color-brand-dark: #0D1B2A;
+}
+
+@layer base {
+  body {
+    @apply font-body text-brand-navy bg-brand-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-brand-navy;
+  }
+  h1 {
+    @apply text-[3rem] font-bold;
+  }
+  h2 {
+    @apply text-[2rem] font-semibold;
+  }
+  h3 {
+    @apply text-[1.25rem] font-semibold;
+  }
+  p {
+    @apply text-[1rem] font-normal leading-relaxed text-brand-greyText;
+  }
+  small {
+    @apply text-[0.875rem];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
